@@ -1,0 +1,619 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto Slab;
+}
+
+.main-container {
+    height: 100vh;
+    background-color: #2a2f36;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 50px 1fr;
+}
+
+.main {
+    grid-column-start: 2;
+    position: relative;
+    border-left: 1px solid #BFBFBF;
+}
+
+
+/* header */
+
+.main_head {
+    padding-right: 50px;
+    padding-left: 75px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #BFBFBF;
+}
+
+.head_logo {
+    padding-top: 25px;
+    max-width: 315px;
+    max-height: 100px;
+}
+
+.head_menu {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head_menu_item span {
+    font-size: 2.8rem;
+}
+
+
+/* header main content */
+
+.main_content {}
+
+h1 {
+    margin: 0;
+    padding-top: 125px;
+    padding-bottom: 50px;
+}
+
+.main_title {
+    padding-left: 75px;
+    font-size: 7.2rem;
+}
+
+.main_subtitle {
+    padding-left: 75px;
+    max-width: 50%;
+    font-size: 4.8rem;
+}
+
+.main_btn {
+    margin-left: 75px;
+    margin-top: 150px;
+}
+
+.main_additional {
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+}
+
+.main_rigth {
+    position: absolute;
+    top: 40%;
+    left: 60%;
+}
+
+.btn {
+    height: 6rem;
+    width: 280px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* transition: box-shadow .2s,color .2s,background-color .2s; вроде для задержки с трансформацией цвета */
+    transition: box-shadow .2s, color .2s, background-color .2s;
+    text-decoration: none;
+    background-color: #7E9093;
+    color: #fff;
+    font-size: 3.5rem;
+}
+
+.btn:hover {
+    background-color: #50D0E6;
+    box-shadow: 0 9px 35px 0 #12C0DD;
+}
+
+
+/* bank-section */
+
+
+/* bank-section top */
+
+
+/*top */
+
+.bank-section_title {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    border-bottom: 1px solid #BFBFBF;
+}
+
+.section_title {
+    grid-column-start: 2;
+    border-left: 1px solid #BFBFBF;
+    padding: 80px;
+}
+
+.section_title span {
+    font-size: 5.2rem;
+}
+
+
+/* center */
+
+
+/* not have bank */
+
+.bank_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.empty {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+}
+
+.empty_container {
+    grid-column-start: 1;
+    border-right: 1px solid #BFBFBF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.empty_container span {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+
+/* have bank */
+
+.bank_item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #BFBFBF;
+    color: #000;
+    transition: background-color .40s, display .40s, color .40s;
+}
+
+.bank_item_open {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #BFBFBF;
+    background-color: #2a2f36;
+    color: #fff;
+    transition: background-color .40s, display .40s;
+}
+
+.bank_item_top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 60px 60px 130px;
+}
+
+.bank_title span {
+    font-size: 3.5rem;
+}
+
+
+/* кнопки */
+
+.btn_itemExpand_container {
+    display: none;
+}
+
+.btn_itemHide {
+    background-color: #fff;
+    border: none;
+    margin-right: 50px;
+    display: block;
+}
+
+.btn_itemHide span,
+.btn_itemExpand span,
+.btn_itemExpand_open span {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.btn_itemExpand {
+    background-color: #fff;
+    border: none;
+    margin: 0 10px;
+}
+
+.minusWhite {
+    color: #fff;
+}
+
+.btn_itemExpand_open {
+    background-color: #2a2f36;
+    border: none;
+    margin: 0 10px;
+}
+
+.bank_table {
+    transition: display .2s;
+    display: none;
+}
+
+.bank_table-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #BFBFBF;
+    padding: 30px 80px 30px 130px;
+}
+
+.table_item_title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.table_item_value {
+    font-size: 2rem;
+}
+
+
+/*bootom */
+
+.bank_create {
+    display: grid;
+    grid-template-columns: 1fr 50px;
+}
+
+.bank_create_container {
+    grid-column-start: 1;
+    border-right: 1px solid #BFBFBF;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    height: 6rem;
+    width: 280px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /* transition: box-shadow .2s,color .2s,background-color .2s; вроде для задержки с трансформацией цвета */
+    transition: box-shadow .2s, color .2s, background-color .2s;
+    text-decoration: none;
+    background-color: #7E9093;
+    color: #fff;
+    font-size: 3.5rem;
+}
+
+.btn:hover {
+    background-color: #50D0E6;
+    box-shadow: 0 9px 35px 0 #12C0DD;
+}
+
+
+/*modal */
+
+.creatBank {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+.bank_body {
+    min-height: 100%;
+    max-width: 80%;
+    margin: 10px auto;
+}
+
+.bank_content {
+    background-color: #fff;
+    position: relative;
+}
+
+.bank_name_container {
+    padding-top: 40px;
+    padding-left: 40px;
+}
+
+.bank_name {
+    height: 40px;
+    width: 300px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.btn_close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 2em;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.bank_conditions-child {
+    display: grid;
+    grid-template-columns: minmax(100px, 2fr) 3fr;
+    border-bottom: 1px solid #BFBFBF;
+    padding: 30px 80px 30px 130px;
+    align-items: center;
+}
+
+.bank_conditions-child input {
+    height: 40px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.bank_child_title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    min-width: 250px;
+    margin: 0 30px;
+}
+
+.btn_solutions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.btn_solutions button {
+    padding: 10px;
+    font-size: 2rem;
+    background-color: #fff;
+}
+
+
+/* убирает стрелочки из input type number */
+
+.bank_conditions-child input::-webkit-outer-spin-button,
+.bank_conditions-child input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+/* footer */
+
+.foot {
+    background-color: #2a2f36;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+}
+
+.footer {
+    grid-column-start: 1;
+    border-right: 1px solid #BFBFBF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+}
+
+.footer_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer_content span {
+    padding: 20px;
+}
+
+
+/* модалка расчета */
+
+.calculator {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+}
+
+.calculator__body {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 1;
+    width: 100vw;
+    min-height: 100%;
+    padding: 30px 10px;
+}
+
+.content {
+    background-color: #fff;
+    max-width: 1000px;
+    margin: 0 auto;
+    color: black;
+    padding: 30px;
+    position: relative;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.btn_close_calculator {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    font-size: 2em;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.header_calculator__body {
+    padding-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.header_title {
+    font-size: 4rem;
+    font-family: 'Geometria', sans-serif;
+    font-weight: bold;
+}
+
+.container-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 0 50px;
+}
+
+.left {}
+
+.rigth {
+    border-left: 1px solid #d8d8d8;
+    padding-left: 30px;
+}
+
+.pay,
+.creditRate {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.pay_title,
+.creditRate_title {
+    margin: 10px 0;
+    font-size: 2rem;
+}
+
+.inputVal {
+    line-height: 6rem;
+    margin-bottom: 2.5rem;
+}
+
+.inputVal label {
+    font-size: 3rem;
+}
+
+.lable {}
+
+.sum object,
+.prepayment object,
+.creditTerm object {
+    width: 180px;
+    height: 45px;
+    border: solid 1px #cbcbcb;
+    padding-right: 12px;
+    float: right;
+    font-size: 1.8rem;
+    display: flex;
+}
+
+.obj_input {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.inputValSub {
+    margin-left: 4px;
+}
+
+.obj_input_rigth {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.obj_input_rigth span {
+    font-size: 1.5rem;
+    margin-left: 4px;
+}
+
+#form_sum,
+#form_prepayment,
+#form_creditTerm {
+    border: none;
+    text-align: right;
+    outline: none;
+    line-height: 30px;
+    color: #000;
+    width: 108px;
+    padding-top: 4px;
+    font-size: 1.8rem;
+}
+
+#form_monthlyPayment,
+#form_endPayment {
+    border: none;
+    text-align: right;
+    outline: none;
+    line-height: 30px;
+    color: #424242;
+    width: 108px;
+    padding-top: 4px;
+    font-size: 1.8rem;
+}
+
+.banks_choice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.banks_choice_list {
+    width: 150px;
+    height: 30px;
+}
+
+.calculate {
+    background-color: #cbcbcb;
+    border: solid 1px #000;
+    width: 150px;
+    height: 25px;
+    text-align: center;
+}
+
+
+/* убирает стрелочки из input type number */
+
+object input::-webkit-outer-spin-button,
+object input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+@media (min-width: 768px) {
+    .rigth {
+        padding-right: 24px;
+    }
+}
+
+input:invalid {
+    border: 2px dashed red;
+}
+
+input:valid {
+    border: 2px solid black;
+}
