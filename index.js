@@ -52,6 +52,7 @@ function showModal() {
     document.body.append(modal)
 }
 let visible = true
+
 let banks = []
 let bank = {
     id: 0,
@@ -64,18 +65,14 @@ let bank = {
     paymentForServices: 0,
 }
 
-// document.addEventListener("DOMContentLoaded", checkEmptyBanks());
+let banksStore = JSON.parse(localStorage.getItem('banks'));
 
-// function checkEmptyBanks() {
-let banksStore = JSON.parse(localStorage.getItem('banks'))
-
-if (!(banksStore == '')) {
+if (banksStore == null) {
+    localStorage.setItem('banks', JSON.stringify(banks))
+    console.log("???")
+} else if (!(banksStore == '')) {
     render()
 }
-//}
-
-banks = banksStore
-localStorage.setItem('banks', JSON.stringify(banks))
 
 
 
@@ -102,6 +99,8 @@ function saveModal() {
     bank.paymentForServices = document.querySelector('.paymentForServices').value
     if (bank.name == '' || bank.percentage == '' || bank.minCredit == '' || bank.maxCredit == '' || bank.prepayment == '' || bank.term == '' || bank.paymentForServices == '') {
         //alert("Заповніть всі поля")
+    } else if (bank.minCredit == bank.maxCredit || bank.minCredit > bank.maxCredit) {
+        alert("Мінімальній сума кредитування не може бути більшим або рівним максимальній сумі кредитування.")
     } else {
         banks.push(bank)
         addBank(bank)
@@ -341,7 +340,6 @@ function saveWriteModal(indexOfElement) {
         banks[indexOfElement] = bank
         localStorage.setItem('banks', JSON.stringify(banks))
         render()
-        console.log(document.querySelectorAll('.bank_item'))
         removeModal()
 
     }
@@ -374,7 +372,7 @@ function creatCalculator() {
                                         <div class="inputVal">
                                             <label for="form_sum" class="lable">Бажана сума</label>
                                             <object class="obj_input">
-                                                <input id="form_sum" type="number"  name="sumVal" required="required" min="10" max="30000000"  value="100000" step="1">                                
+                                                <input id="form_sum" type="number"  name="sumVal" required="required" min="10" max="30000000"  value="${banksCheck[0].minCredit}" step="1">                                
                                                 <span class="inputValSub">грн</span>
                                             </object>
                                         </div>
@@ -383,7 +381,7 @@ function creatCalculator() {
                                         <div class="inputVal">
                                             <label for="form_prepayment" class="lable">Ваш аванс</label>
                                             <object class="obj_input">
-                                                <input id="form_prepayment" type="number"  name="prepaymenVal" required="required" min="1" max="3000000" value="20000" step="1">                              
+                                                <input id="form_prepayment" type="number"  name="prepaymenVal" required="required" min="1" max="3000000" value="${banksCheck[0].prepayment*banksCheck[0].minCredit/100}" step="any">                              
                                                 <span class="inputValSub">грн</span>
                                             </object>
                                         </div>
