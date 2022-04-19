@@ -7,7 +7,7 @@ function showModal() {
         <div class="bank_content">
             <form action="javascript:saveModal()" id="creatBank_form">
                 <div class="bank_name_container">
-                    <input class="bank_name" type="text" placeholder="Name" required="required">
+                    <input class="bank_name" type="text" placeholder="Назва банку" required="required">
                 </div>
                 <button class="btn_close" type="button" onclick="removeModal()">X</button>
                 <div class="bank_conditions">
@@ -91,12 +91,12 @@ function saveModal() {
         bank.id = id
     }
     bank.name = document.querySelector('.bank_name').value
-    bank.percentage = document.querySelector('.percentage').value
-    bank.minCredit = document.querySelector('.minCredit').value
-    bank.maxCredit = document.querySelector('.maxCredit').value
-    bank.prepayment = document.querySelector('.prepayment').value
-    bank.term = document.querySelector('.term').value
-    bank.paymentForServices = document.querySelector('.paymentForServices').value
+    bank.percentage = Number(document.querySelector('.percentage').value)
+    bank.minCredit = Number(document.querySelector('.minCredit').value)
+    bank.maxCredit = Number(document.querySelector('.maxCredit').value)
+    bank.prepayment = Number(document.querySelector('.prepayment').value)
+    bank.term = Number(document.querySelector('.term').value)
+    bank.paymentForServices = Number(document.querySelector('.paymentForServices').value)
     if (bank.name == '' || bank.percentage == '' || bank.minCredit == '' || bank.maxCredit == '' || bank.prepayment == '' || bank.term == '' || bank.paymentForServices == '') {
         //alert("Заповніть всі поля")
     } else if (bank.minCredit == bank.maxCredit || bank.minCredit > bank.maxCredit) {
@@ -276,7 +276,7 @@ function writeShowModal(bank, indexOfElement) {
         <div class="bank_content">
             <form action="javascript:saveWriteModal(${indexOfElement})" id="writeBank_form">
                 <div class="bank_name_container">
-                    <input class="bank_name" type="text" placeholder="Name" required="required" value="${bank.name}">
+                    <input class="bank_name" type="text" placeholder="Назва банку" required="required" value="${bank.name}">
                 </div>
                 <button class="btn_close" type="button" onclick="removeModal()">X</button>
                 <div class="bank_conditions">
@@ -328,14 +328,17 @@ function saveWriteModal(indexOfElement) {
 
     bank.id = id
     bank.name = document.querySelector('.bank_name').value
-    bank.percentage = document.querySelector('.percentage').value
-    bank.minCredit = document.querySelector('.minCredit').value
-    bank.maxCredit = document.querySelector('.maxCredit').value
-    bank.prepayment = document.querySelector('.prepayment').value
-    bank.term = document.querySelector('.term').value
-    bank.paymentForServices = document.querySelector('.paymentForServices').value
+    bank.percentage = Number(document.querySelector('.percentage').value)
+    bank.minCredit = Number(document.querySelector('.minCredit').value)
+    bank.maxCredit = Number(document.querySelector('.maxCredit').value)
+    bank.prepayment = Number(document.querySelector('.prepayment').value)
+    bank.term = Number(document.querySelector('.term').value)
+    bank.paymentForServices = Number(document.querySelector('.paymentForServices').value)
     if (bank.name == '' || bank.percentage == '' || bank.minCredit == '' || bank.maxCredit == '' || bank.prepayment == '' || bank.term == '' || bank.paymentForServices == '') {
         alert("Заповніть всі поля")
+    } else if (bank.minCredit == bank.maxCredit || bank.minCredit > bank.maxCredit) {
+        console.log()
+        alert("Мінімальній сума кредитування не може бути більшим або рівним максимальній сумі кредитування.")
     } else {
         banks[indexOfElement] = bank
         localStorage.setItem('banks', JSON.stringify(banks))
@@ -462,9 +465,9 @@ function mathCalculator() {
     let find = banks.map(el => el.id)
     let indexOfElement = find.indexOf(Number(dataId))
 
-    let sum = document.getElementById('form_sum').value
+    let sum = Number(document.getElementById('form_sum').value)
     let prepayment = Number(document.getElementById('form_prepayment').value)
-    let creditTerm = document.getElementById('form_creditTerm').value * 12
+    let creditTerm = Number(document.getElementById('form_creditTerm').value) * 12
 
     let percentage = banks[indexOfElement].percentage
 
